@@ -1,0 +1,14 @@
+version: 2
+services:
+  golang:
+    image: 'golang:1.6.3-alpine'
+    environment:
+      - >-
+        GO_SRC=package main\nimport (\n  "fmt"\n  "time"\n)\nfunc main() {\n 
+        for i := 0; i < 600; i++ {\n    fmt.Printf("Hello world from Go. The
+        time is %v\\n", time.Now())\n    time.Sleep(1 * time.Second)\n  }\n}
+      - >-
+        occs:description=An example golang container that runs for 10 minutes
+        and prints out a hello world to the terminal. This example is provided
+        as-is for educational purposes and should not be used in production.
+    command: sh -c "echo -e \"$GO_SRC\" > main.go && go run main.go"

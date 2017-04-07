@@ -22,8 +22,8 @@ func GetCurrenciesFromUSDEndpoint(w http.ResponseWriter, req *http.Request) {
  
 func main() {
 	router := mux.NewRouter()
-    currencies = append(currencies, CurrencyFromUSD{Name: "CAD", Prefix: "$", Postfix: " CAD", FromUSD: 1.34})
-    currencies = append(currencies, CurrencyFromUSD{Name: "EURO", Prefix: "&euro;", Postfix: " EUR", FromUSD: 0.94})
+    currencies = append(currencies, CurrencyFromUSD{Name: "CAD", Prefix: "$", Postfix: "CAD", FromUSD: 1.34})
+    currencies = append(currencies, CurrencyFromUSD{Name: "EURO", Prefix: "&euro;", Postfix: "EUR", FromUSD: 0.94})
 	
 	router.HandleFunc("/currenciesFromUSD", GetCurrenciesFromUSDEndpoint).Methods("GET")
 
