@@ -1,8 +1,9 @@
 FROM golang
- 
+
+RUN mkdir /go/src/currencymicroservice
 ADD . go/src/currencymicroservice
-RUN go install currencymicroservice
-ENTRYPOINT /go/bin/basic_web_server
+WORKDIR go/src/currencymicroservice
+RUN go build -o microservice .
+CMD ["go/src/microservice"]
  
 EXPOSE 8089
-
