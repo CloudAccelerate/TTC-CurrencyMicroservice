@@ -1,8 +1,8 @@
 FROM golang
  
-ADD ./go/src/currencymicroservice /go/src/currencymicroservice
-WORKDIR /go/src/currencymicroservice
+ADD . /go/src/currencymicroservice
 RUN go get github.com/gorilla/mux
-RUN go build -o microservice .
-CMD ["/go/src/microservice"]
+RUN go install currencymicroservice
+ENTRYPOINT /go/bin/currencymicroservice
+ 
 EXPOSE 8089
