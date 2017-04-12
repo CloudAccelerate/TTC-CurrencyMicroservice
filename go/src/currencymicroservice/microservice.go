@@ -25,7 +25,7 @@ func main() {
     currencies = append(currencies, CurrencyFromUSD{Name: "CAD", Prefix: "$", Postfix: "CAD", FromUSD: 1.34})
     currencies = append(currencies, CurrencyFromUSD{Name: "EURO", Prefix: "&euro;", Postfix: "EUR", FromUSD: 0.94})
 	
-	router.HandleFunc("/currenciesFromUSD", GetCurrenciesFromUSDEndpoint).Methods("GET")
+	router.HandleFunc("/currencies/v1/usd", GetCurrenciesFromUSDEndpoint).Methods("GET")
 
     log.Fatal(http.ListenAndServe(":8089", router))
 }

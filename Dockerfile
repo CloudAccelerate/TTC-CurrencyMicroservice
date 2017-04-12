@@ -1,7 +1,8 @@
-FROM golang:latest
-RUN mkdir /app
-ADD . /app/
-WORKDIR /app
-RUN go build -o main .
-CMD ["/app/main"]
+FROM golang
+ 
+ADD . /go/src/currencymicroservice
+RUN go install /currencymicroservice
+ENTRYPOINT /go/bin/basic_web_server
+ 
 EXPOSE 8089
+
